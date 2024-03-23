@@ -187,17 +187,41 @@
 # print_full_name("Владимир", "Екатерина", "Виктор")
 
 
-def args_dec(fn):
-    def wrap(x, y):
-        print("Сумма:", x, "и", y, "=", end=" ")
-        fn(x, y)
+# def args_dec(fn):
+#     def wrap(x, y):
+#         print("Сумма:", x, "и", y, "=", end=" ")
+#         fn(x, y)
+#
+#     return wrap
+#
+#
+# @args_dec
+# def summa(a, b):
+#     print(a + b)
+#
+#
+# summa(5, 2)
 
-    return wrap
+def decor(args1):
+    def args_dec(fn):
+        def wrap(x, y):
+            print(args1, x, "и", y, "=", end=" ")
+            fn(x, y)
+
+        return wrap
+
+    return args_dec
 
 
-@args_dec
+@decor("Сумма:")
 def summa(a, b):
     print(a + b)
 
 
+@decor("Разность:")
+def sub(a, b):
+    print(a - b)
+
+
 summa(5, 2)
+sub(5, 2)
