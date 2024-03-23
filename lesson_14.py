@@ -202,26 +202,42 @@
 #
 # summa(5, 2)
 
-def decor(args1):
-    def args_dec(fn):
-        def wrap(x, y):
-            print(args1, x, "и", y, "=", end=" ")
-            fn(x, y)
+# def decor(args1, args2):
+#     def args_dec(fn):
+#         def wrap(x, y):
+#             print(args1, x, args2, y, "=", end=" ")
+#             fn(x, y)
+#
+#         return wrap
+#
+#     return args_dec
+#
+#
+# @decor("Сумма:", "+")
+# def summa(a, b):
+#     print(a + b)
+#
+#
+# @decor("Разность:", "-")
+# def sub(a, b):
+#     print(a - b)
+#
+#
+# summa(5, 2)
+# sub(5, 2)
+
+def multiply(arg):
+    def decor(fn):
+        def wrap(*args, **kwargs):
+            return arg * fn(*args, **kwargs)
 
         return wrap
-
-    return args_dec
-
-
-@decor("Сумма:")
-def summa(a, b):
-    print(a + b)
+    return decor
 
 
-@decor("Разность:")
-def sub(a, b):
-    print(a - b)
+@multiply(3)
+def return_num(num):
+    return num
 
 
-summa(5, 2)
-sub(5, 2)
+print(return_num(5))
