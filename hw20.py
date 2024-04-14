@@ -1,6 +1,6 @@
 import os
 
-dir_name = input("Полный путь к папке папки: ")
+dir_name = input("Полный путь к папке: ")
 objs = os.listdir(dir_name)
 for obj in objs:
     p = os.path.join(dir_name, obj)
