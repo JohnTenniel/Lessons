@@ -66,14 +66,16 @@ class CountryCapital:
         with open(filename) as f:
             temp = json.load(f)
         for key, value in temp.items():
-            if key == reload:
-                name = temp.pop(reload)
-                country_name = input("Введите новое название страны (с заглавной буквы):")
-                capital_name = name
-                temp[country_name] = capital_name
-                count = 1
-                with open(filename, "w") as f:
-                    json.dump(temp, f, indent=2)
+            # Так и не смог понять в чем ошибка оставил до будущих времен.
+            # if key == reload:
+            #     name = temp.pop(reload)
+            #     print(name)
+            #     country_name = input("Введите новое название страны (с заглавной буквы):")
+            #     capital_name = name
+            #     temp[country_name] = capital_name
+            #     count = 1
+            #     with open(filename, "w") as f:
+            #         json.dump(temp, f, indent=2)
             if value == reload:
                 temp[key] = input(f"Введите новое название столицы для {temp[key]} (с заглавной буквы):")
                 count = 1
