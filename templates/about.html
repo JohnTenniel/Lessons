@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}О Сайте{% endblock %}
+
+{% block content %}
+{% block table_contents %}
+{{ super() }}
+{% endblock %}
+<h1>{{ self.title() }}</h1>
+<p>Описание страницы</p>
+
+{{ super() }}
+{% endblock %}
