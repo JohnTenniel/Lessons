@@ -48,7 +48,7 @@ print(msg)
 # file_loader = FileSystemLoader('templates')
 # env = Environment(loader=file_loader)
 #
-# tm = env.get_template('about.html')
+# tm = env.get_template('add_cource.html')
 # msg = tm.render(users=persons, title='About Jinja')
 #
 # print(msg)

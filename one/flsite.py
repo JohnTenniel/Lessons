@@ -18,7 +18,7 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('about.html', title="О нас", menu=menu)
+    return render_template('add_cource.html', title="О нас", menu=menu)
 
 @app.route('/profile/<username>')
 def profile(username):
