@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+
+<ul class="ul1">
+    <li class="li1">
+        <ul class="ul2">
+            <li class="li2">Заголовок1</li>
+             <li class="li3"><p>Текст виджета1</p>
+                <p><input type="submit" value="Купить"></p></li>
+        </ul>
+    </li>
+    <li class="li1">
+         <ul class="ul2">
+            <li class="li2">Заголовок2</li>
+            <li class="li3"><p>Текст виджета2</p>
+                <p><input type="submit" value="Купить"></p></li>
+        </ul>
+    </li>
+    <li class="li1">
+         <ul class="ul2">
+            <li class="li2">Заголовок3</li>
+             <li class="li3"><p>Текст виджета3</p>
+                <p><input type="submit" value="Купить"></p></li>
+        </ul>
+    </li>
+</ul>
+
+
+
+{% endblock %}
