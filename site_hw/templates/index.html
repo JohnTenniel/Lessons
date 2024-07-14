@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+
+<hr>
+<div class="content_block">
+    {% for c in courses %}
+    <div>
+        <p class="title">
+            <a>{{ c.title }}</a>
+        </p>
+        <p class="annoncePrice">{{ c.price }} руб/мес</p>
+    <div class="annonce">
+        <div >{{ c.text[:70] | striptags }}...</div>
+        <p class="butblok"><button class="but"><a href="{{ url_for('show_course', id_course=c.id) }}">Купить</a></button></p>
+    </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

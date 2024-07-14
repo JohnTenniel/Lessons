@@ -27,7 +27,7 @@ def create_db():
 
 
 def get_db():
-    if not hasattr(g, 'linl_db'):
+    if not hasattr(g, 'link_db'):
         g.link_db = connect_db()
     return g.link_db
 
@@ -52,7 +52,7 @@ def add_post():
                 flash("Статья добавлена успешно", category='success')
         else:
             flash("Ошибка добавления статьи", category='error')
-    return render_template('add_post.html', menu=dbase.get_menu(), title="Добавление статьи")
+    return render_template('add_course.html', menu=dbase.get_menu(), title="Добавление статьи")
 
 
 @app.route("/post/<int:id_post>")
@@ -60,7 +60,7 @@ def show_post(id_post):
     db = get_db()
     dbase = FDataBase(db)
     title, post = dbase.get_post(id_post)
-    return render_template('post.html',menu=dbase.get_menu(), title=title, post=post)
+    return render_template('post.html', menu=dbase.get_menu(), title=title, post=post)
 
 
 @app.teardown_appcontext
