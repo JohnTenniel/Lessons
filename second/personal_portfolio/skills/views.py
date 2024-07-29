@@ -4,4 +4,4 @@ from .models import Skills
 
 def index(request):
     projects = Skills.objects.all()
-    return render(request, 'skills/index.html', {'projects': projects})
+    return render(request, 'main/index.html', {'projects': projects})

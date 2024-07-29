@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'main/favicon.ico' %}">
+</head>
+<body>
+<div class="menu">
+    <div class="wrap">
+        <div class="logo">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'main/logo.png' %}" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+  <div class="content">
+    <div class="wrap">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+</body>
+</html>
