@@ -11,23 +11,34 @@
 <div class="menu">
     <div class="wrap">
         <div class="logo">
-           <ul> <a href="{% url 'index' %}">
-                <img src="{% static 'main/logo.png' %}" alt="">
-           </a>
-               <a href="{% url 'perk' %}"><li class="pers">Пользователь: {{ user.username }}</li></a>
+            <ul>
+            {% if user.is_authenticated %}
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'main/logo.png' %}" alt="">
+                </a>
+                <a href="{% url 'perk' %}"><li class="pers">Пользователь: {{ user.username }}</li></a>
+            {% else %}
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'main/logo.png' %}" alt="">
+                </a>
+            {% endif %}
             </ul>
         </div>
         <ul>
+        {% if user.is_authenticated %}
             <li><a href="{% url 'index' %}">Главная</a></li>
             <li><a href="{% url 'blogs' %}">Блог</a></li>
-            <li><a href="{% url 'reg' %}">Регистрация</a></li>
-            <li><a href="{% url 'log' %}">Аутентификация</a></li>
             <li>
                 <form action="{% url 'unlog' %}" method="post">
                     {% csrf_token %}
                     <button class="top">Выйти</button>
                 </form>
             </li>
+        {% else %}
+            <li><a href="{% url 'index' %}">Главная</a></li>
+            <li><a href="{% url 'reg' %}">Регистрация</a></li>
+            <li><a href="{% url 'log' %}">Аутентификация</a></li>
+        {% endif %}
         </ul>
     </div>
 </div>

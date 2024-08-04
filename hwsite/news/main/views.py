@@ -22,7 +22,7 @@ def reg(request):
                 user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('reg')
+                return redirect('perk')
             except IntegrityError:
                 return render(request, 'main/reg.html',
                               {'form': UserCreationForm(), 'error': 'Такое имя пользователя уже существует'
