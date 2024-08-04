@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
-
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -50,7 +50,7 @@ def unlog(request):
         logout(request)
         return redirect('index')
 
-
+@login_required
 def perk(request):
     projects = Main.objects.all()
     return render(request, 'main/perk.html')
