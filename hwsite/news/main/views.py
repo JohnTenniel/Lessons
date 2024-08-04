@@ -52,5 +52,4 @@ def unlog(request):
 
 @login_required
 def perk(request):
-    projects = Main.objects.all()
     return render(request, 'main/perk.html')
