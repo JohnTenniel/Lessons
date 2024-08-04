@@ -12,7 +12,9 @@
         <ul>
             {% if user.is_authenticated %}
             <li class="logo">Пользователь: {{ user.username }}</li>
+            <li><a href="{% url 'createtodo' %}">Создать</a></li>
             <li><a href="{% url 'currenttodos' %}">Актуальные</a></li>
+            <li><a href="{% url 'completedtodos' %}">Выполненные</a></li>
             <li>
                 <form action="{% url 'logoutuser' %}" method="post">
                     {% csrf_token %}
@@ -20,8 +22,9 @@
                 </form>
             </li>
             {% else %}
-            <li><a href="{% url 'signupuser' %}">Зарегестрироваться</a></li>
-            <li><a href="">Авторизироваться</a></li>
+            <li class="logo"><a href="{% url 'home' %}">UpService</a></li>
+            <li><a href="{% url 'signupuser' %}">Зарегистрироваться</a></li>
+            <li><a href="{% url 'loginuser' %}">Авторизоваться</a></li>
             {% endif %}
         </ul>
     </div>

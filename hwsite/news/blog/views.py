@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Blog
+from django.contrib.auth.decorators import login_required
+@login_required
+def blogs(request):
+    blogs = Blog.objects.order_by('-date')
+    return render(request, 'blog/blogs.html', {'blogs': blogs})
 
-# Create your views here.
+@login_required
+def detail(request, blog_id):
+    blog = get_object_or_404(Blog, pk=blog_id)
+    return render(request, 'blog/details.html', {'blog': blog})

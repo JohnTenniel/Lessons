@@ -11,10 +11,24 @@
 <div class="menu">
     <div class="wrap">
         <div class="logo">
-            <a href="{% url 'index' %}">
+           <ul> <a href="{% url 'index' %}">
                 <img src="{% static 'main/logo.png' %}" alt="">
-            </a>
+           </a>
+               <a href="{% url 'perk' %}"><li class="pers">Пользователь: {{ user.username }}</li></a>
+            </ul>
         </div>
+        <ul>
+            <li><a href="{% url 'index' %}">Главная</a></li>
+            <li><a href="{% url 'blogs' %}">Блог</a></li>
+            <li><a href="{% url 'reg' %}">Регистрация</a></li>
+            <li><a href="{% url 'log' %}">Аутентификация</a></li>
+            <li>
+                <form action="{% url 'unlog' %}" method="post">
+                    {% csrf_token %}
+                    <button class="top">Выйти</button>
+                </form>
+            </li>
+        </ul>
     </div>
 </div>
   <div class="content">
